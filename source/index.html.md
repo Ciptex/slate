@@ -1123,7 +1123,6 @@ This endpoint retrieves all Service Hours.
   
 
 ```js
-
 ```
 
   

@@ -4,14 +4,14 @@
 All status codes are standard HTTP status codes. The below ones are used in this API.
 </aside>
 
-The Kittn API uses the following error codes:
+The Hermes API uses the following status codes:
 
 2XX | Success of some kind.
 4XX | Error occurred in client’s part.
 5XX | Error occurred in server’s part.
 
 
-HTTP Status Codes | Meaning
+HTTP Status Codes | Description
 ---------- | -------
 200 | OK 
 201 | Created 
