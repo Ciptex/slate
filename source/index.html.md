@@ -56,7 +56,6 @@ In this document, you will find essential API calls you need to get up and start
   
 
 ```js
-
 function token() {
 
 	//Your Username and Password
@@ -74,6 +73,7 @@ function token() {
 
 	var url = "https://auth-api.ciptex.net/token";
 
+  
 
 	//Setting up the pramateres for the XML Request
 
@@ -116,8 +116,95 @@ function token() {
 
 
 	req.send(params);
-
 ```
+
+> cURL
+
+```bash
+curl -i -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=password&username=test&password=test'  -X POST https://auth-api.ciptex.net/token
+```
+
+> Python 
+
+```py
+import http.client
+
+conn = http.client.HTTPSConnection("") 
+
+payload = "{\"grant_type\":\"password\",\"username\": \"test\",\"password\": \"test\"}" # Grant type for the call
+
+headers = { 'content-type': "application/x-www-form-urlencoded" } # Relevant header 
+
+conn.request("POST", "https://auth-api.ciptex.net/token", payload, headers) # Method and endpoint 
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8")) # Your Access code
+```
+> Objective C
+
+```cs
+// Setting up you prams and relevant headers
+NSDictionary *headers = @{ @"content-type": @"application/x-www-form-urlencoded" };
+NSDictionary *parameters = @{ @"grant_type": @"password",
+                              @"username": @"test",
+                              @"password": @"test";
+
+NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+// Pointing the call to the right endpoint
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://auth-api.ciptex.net/token"] cachePolicy:NSURLRequestUseProtocolCachePolicy 
+timeoutInterval:10.0];
+// Setting the method as Post
+[request setHTTPMethod:@"POST"];
+[request setAllHTTPHeaderFields:headers];
+[request setHTTPBody:postData];
+// Setting up an NS session
+NSURLSession *session = [NSURLSession sharedSession];
+NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+  // Simple validation
+    if (error) {
+        NSLog(@"%@", error);
+  } else {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+        NSLog(@"%@", httpResponse);
+  }
+}];
+
+[dataTask resume];
+  
+```
+> PHP 
+
+```php
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://auth-api.ciptex.net/token", // Address for the endpoint
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST", // Method type for the api call
+  CURLOPT_POSTFIELDS => "{\"grant_type\":\"password\",\"username\": \"test\",\"password\": \"test\",}", // Setting up the relevant grant type
+  CURLOPT_HTTPHEADER => array(
+    "content-type: application/x-www-form-urlencoded" // Setting up the right header for the call
+  ),
+));
+
+$response = curl_exec($curl); 
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) { // Simple validation
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+```
+
 
   
 
