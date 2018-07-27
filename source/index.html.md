@@ -10,6 +10,8 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - js
 - shell
 - python
+- cs
+- php
 
   
 
@@ -172,7 +174,64 @@ curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TO
 > Python
 
 ```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/agents' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
 
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/agents"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]] forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
+  
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/agents';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
 ```
 
   
@@ -246,6 +305,69 @@ req.send();
 
 ```bash
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/break-codes
+```
+
+> Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/break-codes' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/break-codes"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
+  
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/break-codes';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
 ```
 
   
@@ -322,6 +444,68 @@ req.send();
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/email
 ```
 
+> Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/email' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/email"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
+  
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/email';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
+```
   
 
 > The above command returns JSON structured like this:
@@ -403,7 +587,69 @@ req.send();
 ```bash
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/inbound
 ```
+
+> Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/inbound' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/inbound"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
   
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/inbound';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
+```
 
 > The above command returns JSON structured like this:
 
@@ -487,7 +733,69 @@ req.send();
 ```bash
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/manual
 ```
+
+> Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/manual' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/manual"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
   
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/manual';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
+```
 
 > The above command returns JSON structured like this:
 
@@ -566,7 +874,68 @@ req.send();
 ```bash
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/outbound
 ```
+> Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/outbound' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/outbound"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
   
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/campaigns/outbound';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
+```
 
 > The above command returns JSON structured like this:
 
@@ -650,12 +1019,74 @@ req.send();
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/customer-hours
 ```
 
+> Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/customer-hours' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/customer-hours"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
+  
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/customer-hours';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
+```
+
 > The above command returns JSON structured like this:
 
   
 
 ```json
-
 [
   {
     "oid": "SodBRBQK",
@@ -690,7 +1121,6 @@ curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TO
     ]
   }
 ]
-
 ```
 
   
@@ -743,14 +1173,75 @@ req.send();
 ```bash
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/disposition-groups
 ```
+
+> Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/disposition-groups' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/disposition-groups"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
   
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/disposition-groups';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
+```
 
 > The above command returns JSON structured like this:
 
   
 
 ```json
-
 [
   {
     "oid": "SogsrdsK",
@@ -761,14 +1252,12 @@ curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TO
     "statusgroupid": 1
   }
 ]
-
 ```
 
   
 
 This endpoint retrieves all Disposition Groups.
 
-  
 
 ### HTTP Request
 
@@ -815,6 +1304,69 @@ req.send();
 ```bash
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/dispositions
 ```  
+
+> Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/dispositions' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/dispositions"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
+  
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/dispositions';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
+```
 
 > The above command returns JSON structured like this:
 
@@ -891,6 +1443,68 @@ req.send();
 
 ```bash
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/holiday-groups
+```
+> Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/holiday-groups' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/holiday-groups"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
+  
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/holiday-groups';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
 ```
 
 > The above command returns JSON structured like this:
@@ -975,7 +1589,69 @@ req.send();
 ```bash
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/queues
 ```
+ 
+ > Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/queues' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/queues"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
   
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/queues';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
+```
 
 > The above command returns JSON structured like this:
 
@@ -1045,7 +1721,69 @@ req.send();
 ```bash
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/service-hours
 ```
+
+> Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/service-hours' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/service-hours"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
   
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/service-hours';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
+```
 
 > The above command returns JSON structured like this:
 
@@ -1142,6 +1880,69 @@ req.send();
 
 ```bash
 curl -i -H "Content-type: application/json" -H "Authorization: Bearer <ACCESS_TOKEN>" -X GET https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/supervisor-groups
+```
+
+> Python
+
+```py
+import requests
+import json
+url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/supervisor-groups' # Ednpoint URL
+headers = {'Content-Type':'application/json', 'Authorization':'Bearer ' + '<ACCESS_TOKEN>'} # Replace the <ACCESS_TOKEN> with your token
+response = requests.get(url, verify=True) # Check for validation
+if response.status_code == 200:
+print (response.text) # Printing your response in the terminal (Optional)
+ 
+json.loads(response.text) # The respond from the endpoint
+```
+
+> Objective C
+
+```cs
+NSURL *url = @"https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/supervisor-groups"; // Endpoint URL
+  NSURLSession *session = [NSURLSession sharedSession]; 
+
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+
+  [request setHTTPMethod:@"GET"]; // Setting the Request method
+
+  [request setValue:@[NSString stringWithFormat:["Bearer%@" + "<ACCESS_TOKEN>"]]  forHTTPHeaderField:@"Authorization"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; // Setting the relevant headers 
+
+   // add any additional headers or parameters
+   NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (!error) {
+   // do your response handling
+   id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray * resultDict =[json objectForKey:@"result"];
+  }
+  }];
+
+  [downloadTask resume];
+
+  
+```
+
+> PHP 
+
+```php
+$token
+$remote_url = 'https://0rnnu19j3f.execute-api.eu-west-2.amazonaws.com/Dev/supervisor-groups';
+
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header' => "Authorization: Bearer ".$token)                 
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents($remote_url, false, $context);
+
+print($file);
 ```
 
 > The above command returns JSON structured like this:
